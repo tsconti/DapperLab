@@ -9,6 +9,6 @@ public interface IDbConnectionConfig
     public string Password { get; set; }
     public string Host { get; set; }
     public string Port { get; set; }
-    public DbProvider Type { get; set; }
+    public DbProvider DbProvider { get; set; }
     public string GetConnectionString();
 }

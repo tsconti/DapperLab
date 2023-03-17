@@ -15,7 +15,7 @@ public class DbConnectionFactory : IDbConnectionFactory
     
     public System.Data.IDbConnection GetConnection()
     {
-        switch (_config.Type)
+        switch (_config.DbProvider)
         {
             case DbProvider.MsSql:
                 return new SqlConnection(_config.GetConnectionString());
@@ -25,7 +25,7 @@ public class DbConnectionFactory : IDbConnectionFactory
                 return new NpgsqlConnection(_config.GetConnectionString());
 
             default:
-                throw new NotImplementedException(_config.Type.ToString());
+                throw new NotImplementedException(_config.DbProvider.ToString());
         }
     }
 }
